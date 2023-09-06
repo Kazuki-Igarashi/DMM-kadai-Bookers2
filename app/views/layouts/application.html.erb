@@ -8,6 +8,7 @@
     
     <script src="https://kit.fontawesome.com/a5ecd21e57.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -23,29 +24,45 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li class="nav-item">
-                  <%= link_to 'Home', user_path(current_user.id), class: 'nav-link text-dark' %>
+                  <%= link_to user_path(current_user.id), class: 'nav-link text-dark px-3' do %>
+                    <i class="fa-solid fa-home">Home</i>
+                  <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to 'Users', users_path, class: 'nav-link text-dark' %>
+                  <%= link_to users_path, class: 'nav-link text-dark px-3' do %>
+                    <i class="fa-solid fa-users">Users</i> 
+                <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "Books", books_path, class: 'nav-link text-dark' %>
+                  <%= link_to books_path, class: 'nav-link text-dark px-3' do %>
+                    <i class="fa-solid fa-book-open">Books</i>
+                <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+                  <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-dark px-3' do %>
+                    <i class="fa-solid fa-sign-out-alt">Log out</i>
+                <% end %>
                 </li>  
               <% else %>
                 <li>
-                  <%= link_to "Home", root_path %>
+                  <%= link_to root_path, class:'px-3' do %>
+                    <i class="fa-solid fa-home">Home</i>
+                  <% end %>
                 </li>
                 <li>
-                  <%= link_to "About", about_path %>
+                  <%= link_to about_path, class:'px-3' do %>
+                    <i class="fa-solid fa-link">About</i>
+                <% end %>
                 </li>
                 <li>
-                  <%= link_to "Log in", new_user_session_path %>
+                  <%= link_to new_user_session_path, class:'px-3' do %>
+                    <i class="fa-solid fa-user-plus">Sign up</i>
+                <% end %>
                 </li>
                 <li>
-                  <%= link_to "Sign up", new_user_registration_path %>
+                  <%= link_to new_user_registration_path, class:'px-3' do %>
+                     <i class="fa-solid fa-sign-in-alt">Log in</i>
+                <% end %>
                 </li>
               <% end %>
             </ul>
