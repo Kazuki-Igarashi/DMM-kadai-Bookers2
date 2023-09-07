@@ -1,0 +1,37 @@
+<%= render 'layouts/sidebar' %>
+
+<div class="col-md-8 offset-md-1">
+  <h2>Book detail</h2>
+  <table class="table table-striped">
+    <thead class="book-head">
+      <tr>
+        <th colspan="6"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <%= link_to user_path(@find_book.user) do %>
+            <%= image_tag @find_book.user.get_profile_image(100,100) %>
+            <p><%= @user.name %></p>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to book_path(@find_book) do %>
+            <% @find_book.title %>
+          <% end %>
+        </td>
+        <td>
+          <%= @find_book.body %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_book_path(@find_book), class: "btn btn-primary" %>
+        </td>
+        <td>
+          <%= link_to 'Destroy', book_path(@find_book), class: "btn btn-warning", method: :delete, method: :delete, "data-confirm" => "Are you sure?" %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
