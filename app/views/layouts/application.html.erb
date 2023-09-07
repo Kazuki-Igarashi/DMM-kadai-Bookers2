@@ -55,13 +55,13 @@
                 <% end %>
                 </li>
                 <li>
-                  <%= link_to new_user_session_path, class:'px-3 text-white' do %>
-                    <i class="fa-solid fa-user-plus">Sign up</i>
-                <% end %>
+                  <%= link_to new_user_registration_path, class:'px-3 text-white' do %>
+                     <i class="fa-solid fa-sign-in-alt">Sign up</i>
+                  <% end %>
                 </li>
                 <li>
-                  <%= link_to new_user_registration_path, class:'px-3 text-white' do %>
-                     <i class="fa-solid fa-sign-in-alt">Log in</i>
+                  <%= link_to new_user_session_path, class:'px-3 text-white' do %>
+                    <i class="fa-solid fa-user-plus">Log in</i>
                 <% end %>
                 </li>
               <% end %>
@@ -72,12 +72,11 @@
     </header>
     
      
-    
+    <% flash.each do |message_type, message| %>
+      <div class="flash-message <%= message_type %>"><%= message %></div>
+    <% end %>
     <div class="container px-5 px-0">
       <div class="row">
-        <% flash.each do |message_type, message| %>
-          <div class="flash-message <%= message_type %>"><%= message %></div>
-        <% end %>
         <%= yield %>
       </div>
     </div>
