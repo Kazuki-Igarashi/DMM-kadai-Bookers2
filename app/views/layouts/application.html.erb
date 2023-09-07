@@ -70,8 +70,14 @@
         </div>
       </nav>
     </header>
+    
+     
+    
     <div class="container px-5 px-0">
       <div class="row">
+        <% flash.each do |message_type, message| %>
+          <div class="flash-message <%= message_type %>"><%= message %></div>
+        <% end %>
         <%= yield %>
       </div>
     </div>
